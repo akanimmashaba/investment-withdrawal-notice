@@ -12,14 +12,6 @@ public class WithdrawalNotice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    @ManyToOne
-    @JoinColumn(name = "investor_id", nullable = false)
-    private Investor investor;
-
     private Double withdrawalAmount;
 
     private LocalDate withdrawalDate;
@@ -34,22 +26,6 @@ public class WithdrawalNotice {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Investor getInvestor() {
-        return investor;
-    }
-
-    public void setInvestor(Investor investor) {
-        this.investor = investor;
     }
 
     public Double getWithdrawalAmount() {

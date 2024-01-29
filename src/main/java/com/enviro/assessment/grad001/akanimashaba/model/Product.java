@@ -11,20 +11,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "product")
-    private Set<Investor> investors = new HashSet<>();
 
     private String type; // RETIREMENT/SAVINGS
     private String name;
     private Double currentBalance;
-
-    public Set<Investor> getInvestors() {
-        return investors;
-    }
-
-    public void setInvestors(Set<Investor> investors) {
-        this.investors = investors;
-    }
 
     public Long getId() {
         return id;

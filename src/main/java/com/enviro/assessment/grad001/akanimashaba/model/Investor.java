@@ -1,5 +1,8 @@
 package com.enviro.assessment.grad001.akanimashaba.model;
 import jakarta.persistence.*;
+import java.util.List;
+import java.util.ArrayList;
+
 
 @Entity
 @Table(name = "investors")
@@ -7,11 +10,23 @@ public class Investor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     private String firstName;
+
+
     private String lastName;
+
+
     private String email;
+
+
     private String address;
+
+
     private String contactNumber;
+
+
     private int age;
 
     public Long getId() {
@@ -42,9 +57,11 @@ public class Investor {
         return email;
     }
 
+
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     public String getAddress() {
         return address;

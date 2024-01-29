@@ -14,23 +14,10 @@ public class Statement {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "investor_id", nullable = false)
-    private Investor investor;
-
-
     private LocalDate startDate;
 
     private LocalDate endDate;
 
-    public Investor getInvestor() {
-        return investor;
-    }
-
-    public void setInvestor(Investor investor) {
-        this.investor = investor;
-    }
-    
 
     public Long getId() {
         return id;
