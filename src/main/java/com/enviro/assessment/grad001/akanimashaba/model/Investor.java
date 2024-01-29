@@ -77,9 +77,6 @@ public class Investor {
         this.address = address;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
-    }
 
     public int getAge() {
         return age;
@@ -87,5 +84,14 @@ public class Investor {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 }
