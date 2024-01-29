@@ -1,8 +1,10 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.2'
+    id "org.springdoc.openapi-gradle-plugin" version "1.8.0"
     id 'io.spring.dependency-management' version '1.1.4'
     id 'org.asciidoctor.jvm.convert' version '3.3.2'
+
 }
 
 group = 'com.enviro'
@@ -36,4 +38,9 @@ tasks.named('test') {
 tasks.named('asciidoctor') {
     inputs.dir snippetsDir
     dependsOn test
+}
+tasks {
+    forkedSpringBootRun {
+        doNotTrackState("See https://github.com/springdoc/springdoc-openapi-gradle-plugin/issues/102")
+    }
 }
