@@ -29,6 +29,12 @@ public class Investor {
 
     private int age;
 
+    @OneToMany(mappedBy = "investor")
+    private List<Product> products;
+    @OneToMany(mappedBy = "investor")
+    private List<Statement> statements;
+
+
     public Long getId() {
         return id;
     }

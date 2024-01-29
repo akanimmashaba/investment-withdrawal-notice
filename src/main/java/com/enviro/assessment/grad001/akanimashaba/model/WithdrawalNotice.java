@@ -20,6 +20,10 @@ public class WithdrawalNotice {
     @Column(name = "status")
     private String status; // "Pending", "Approved", "Processing", "Completed", "Rejected"
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
     public Long getId() {
         return id;
     }

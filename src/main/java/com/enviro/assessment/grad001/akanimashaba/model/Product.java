@@ -3,6 +3,7 @@ package com.enviro.assessment.grad001.akanimashaba.model;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -15,6 +16,16 @@ public class Product {
     private String type; // RETIREMENT/SAVINGS
     private String name;
     private Double currentBalance;
+
+    @ManyToOne
+    @JoinColumn(name = "investor_id")
+    private Investor investor;
+
+    @OneToMany(mappedBy = "product")
+    private List<WithdrawalNotice> withdrawalNotices;
+
+    @OneToMany(mappedBy = "product")
+    private List<Statement> statements;
 
     public Long getId() {
         return id;

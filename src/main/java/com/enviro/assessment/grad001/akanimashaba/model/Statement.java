@@ -4,20 +4,23 @@ package com.enviro.assessment.grad001.akanimashaba.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import com.enviro.assessment.grad001.akanimashaba.model.Investor;
+
 @Entity
 public class Statement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
     private LocalDate startDate;
 
     private LocalDate endDate;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "investor_id")
+    private Investor investor;
 
     public Long getId() {
         return id;
