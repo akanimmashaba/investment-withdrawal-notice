@@ -1,9 +1,9 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.2'
-    id "org.springdoc.openapi-gradle-plugin" version "1.8.0"
     id 'io.spring.dependency-management' version '1.1.4'
     id 'org.asciidoctor.jvm.convert' version '3.3.2'
+    id "org.springdoc.openapi-gradle-plugin" version "1.8.0"
 
 }
 
@@ -11,7 +11,7 @@ group = 'com.enviro'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '21'
+    sourceCompatibility = '17'
 }
 
 repositories {
@@ -39,8 +39,19 @@ tasks.named('asciidoctor') {
     inputs.dir snippetsDir
     dependsOn test
 }
+
 tasks {
     forkedSpringBootRun {
         doNotTrackState("See https://github.com/springdoc/springdoc-openapi-gradle-plugin/issues/102")
+    };
+    openApi {
+        apiDocsUrl.set("https://localhost:9000/api/docs")
+        outputDir.set(file("$buildDir/docs"))
+        outputFileName.set("swagger.json")
+        waitTimeInSeconds.set(10)
+        customBootRun {
+            args.set(["--spring.profiles.active=special"])
+        }
     }
 }
+

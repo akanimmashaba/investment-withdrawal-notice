@@ -27,6 +27,11 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Statement> statements;
 
+    public Long getInvestorId() {
+        return investor != null ? investor.getId() : null;
+    }
+
+
     public Long getId() {
         return id;
     }
@@ -58,4 +63,6 @@ public class Product {
     public void setCurrentBalance(Double currentBalance) {
         this.currentBalance = currentBalance;
     }
+
+
 }

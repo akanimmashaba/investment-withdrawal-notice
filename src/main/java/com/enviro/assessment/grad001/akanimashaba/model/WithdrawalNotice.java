@@ -63,4 +63,14 @@ public class WithdrawalNotice {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    // Get InvestorId from the related Product
+    public Long getInvestorId() {
+        return product != null ? product.getInvestorId() : null;
+    }
+
+    // Get ProductId from the related Product
+    public Long getProductId() {
+        return product != null ? product.getId() : null;
+    }
 }
