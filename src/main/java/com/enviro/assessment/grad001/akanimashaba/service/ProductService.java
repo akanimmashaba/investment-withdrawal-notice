@@ -2,6 +2,7 @@ package com.enviro.assessment.grad001.akanimashaba.service;
 
 import com.enviro.assessment.grad001.akanimashaba.model.Product;
 import com.enviro.assessment.grad001.akanimashaba.repository.ProductRepository;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
@@ -16,8 +17,9 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Optional<Product> getProductById(Long productId) {
-        return productRepository.findById(productId);
+    public Product getProductById(Long productId) throws ChangeSetPersister.NotFoundException {
+        return productRepository.findById(productId)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 
     public Product createProduct(Product product) {
